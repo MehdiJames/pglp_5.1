@@ -3,4 +3,63 @@
   <groupId>DAO</groupId>
   <artifactId>Maven_5_1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <name>maven_5_1</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+    <reporting>
+		<plugins>
+
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			
+			<!-- Plugin checkstyle, éxécuté avec mvn site -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.1.0</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>checkstyle</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+				<configuration>
+					<configLocation>${basedir}/checkstyle.xml</configLocation>
+					<suppressionsLocation>${basedir}/checkstyle-suppressions.xml</suppressionsLocation>
+				</configuration>
+			</plugin>
+			
+			<!-- Plugin SpotBugs, éxécuté avec mvn site -->
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>3.1.8</version>
+			</plugin>
+			
+
+		</plugins>
+	</reporting>
 </project>
